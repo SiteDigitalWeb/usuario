@@ -1,7 +1,7 @@
 <?php
 
-namespace DigitalsiteSaaS\Usuario\Http;
-use DigitalsiteSaaS\Usuario\Usuario;
+namespace Sitedigitalweb\Usuario\Http;
+use Sitedigitalweb\Usuario\Usuario;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use File;
@@ -38,7 +38,7 @@ public function index() {
  if(!$this->tenantName){
  $users = Usuario::all();
 }else{
- $users = \DigitalsiteSaaS\Usuario\Tenant\Usuario::all();
+ $users = \Sitedigitalweb\Usuario\Tenant\Usuario::all();
 }
 $website = app(\Hyn\Tenancy\Environment::class)->website();
 
@@ -55,7 +55,7 @@ public function crear(){
  if(!$this->tenantName){
  $price = Usuario::max('id');
  }else{
- $price = \DigitalsiteSaaS\Usuario\Tenant\Usuario::max('id');
+ $price = \Sitedigitalweb\Usuario\Tenant\Usuario::max('id');
  }
  $suma = $price + 1;
  $path = public_path() . '/fichaimg/clientes/'.$suma;
@@ -65,7 +65,7 @@ public function crear(){
  if(!$this->tenantName){
  $user = new Usuario;
  }else{
- $user = new \DigitalsiteSaaS\Usuario\Tenant\Usuario;	
+ $user = new \Sitedigitalweb\Usuario\Tenant\Usuario;	
  }
  $user->name = Input::get('name');
  $user->last_name = Input::get('last_name');
@@ -84,7 +84,7 @@ public function eliminar($id) {
  if(!$this->tenantName){
  $user = Usuario::find($id);
  }else{
- $user = \DigitalsiteSaaS\Usuario\Tenant\Usuario::find($id);
+ $user = \Sitedigitalweb\Usuario\Tenant\Usuario::find($id);
  }
  $user->delete();
  return Redirect('gestion/usuario')->with('status', 'ok_delete');
@@ -94,7 +94,7 @@ public function editar($id){
  if(!$this->tenantName){
  $usuario = Usuario::find($id);
  }else{
- $usuario = \DigitalsiteSaaS\Usuario\Tenant\Usuario::find($id);
+ $usuario = \Sitedigitalweb\Usuario\Tenant\Usuario::find($id);
  }
  return view('usuario::editar-usuario')->with('usuario', $usuario);
 }
@@ -104,7 +104,7 @@ public function actualizar($id){
  if(!$this->tenantName){
  $user = Usuario::find($id);
  }else{
- $usuario = \DigitalsiteSaaS\Usuario\Tenant\Usuario::find($id);	
+ $usuario = \Sitedigitalweb\Usuario\Tenant\Usuario::find($id);	
  }
  $user->name = Input::get('name');
  $user->last_name = Input::get('last_name');
