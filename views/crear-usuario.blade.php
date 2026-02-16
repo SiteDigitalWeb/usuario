@@ -82,7 +82,8 @@
        '2' => 'Comprador',
        '3' => 'Fichador',
        '4' => 'Recepcion',
-       '40' => 'Dresses_Admin'], null, array('class' => 'form-control')) }}
+       '40' => 'Dresses_Admin',
+       '80' => 'Renault'], null, array('class' => 'form-control')) }}
       </div>
     </div>
 

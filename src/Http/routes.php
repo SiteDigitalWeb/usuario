@@ -11,3 +11,4 @@ Route::group(['middleware' => ['auth','administrador']], function (){
 Route::group(['middleware' => ['web']], function () {
   Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
+
